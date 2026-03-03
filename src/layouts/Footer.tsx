@@ -17,7 +17,7 @@ const Footer = () => {
                 <Row>
                     <Col lg={4} >
                         <div className="footer-info mt-4">
-                            <Image src={logo} alt='logo' height={22} />
+                            <Image src={logo} alt='logo' height={40} />
                             <h5 className="f-18 mt-4 pt-1 line-height_1_6">
                                 {t('footer.tagline')}
                             </h5>

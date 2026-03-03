@@ -21,7 +21,7 @@ const Page = () => {
                             <div className="form-box bg-white">
                                 <div className="p-4">
                                     <div className="text-center mt-3">
-                                        <Link href="/"><Image src={logoDark} alt='img' height={24} /></Link>
+                                        <Link href="/"><Image src={logoDark} alt='img' height={40} /></Link>
                                         <p className="text-muted mt-3">{t('auth.signUpNewAccount')}</p>
                                     </div>
                                     <div className="p-2 custom-form">

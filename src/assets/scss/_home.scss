@@ -52,8 +52,10 @@
     img {
       box-shadow: $box-shadow;
       border-radius: 10px;
-      max-height: 630px;
       margin: 20px;
+      width: calc(100% - 40px);
+      height: auto;
+      object-fit: contain;
     }
   }
 }

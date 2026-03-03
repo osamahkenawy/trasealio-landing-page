@@ -10,6 +10,9 @@
   position: relative;
   box-shadow: $box-shadow;
   padding: 35px 30px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 .features-title{
   -webkit-text-stroke: 2px $primary;
   color: $white;

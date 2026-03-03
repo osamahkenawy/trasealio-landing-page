@@ -55,14 +55,14 @@ const Features = () => {
                 <Row className=" mt-5 pt-4">
                     {
                         FeaturesData.map((item, idx) => (
-                            <Col lg={4} key={idx}>
+                            <Col lg={4} key={idx} className="d-flex">
                                 <div className="features-box mt-4">
                                     <h1 className="features-title">{item.id}</h1>
                                     <div className="features-img">
                                         <Image src={item.image} className="img-fluid" alt='img' />
                                     </div>
                                     <h5 className="f-18 mt-4">{t(item.titleKey)}</h5>
-                                    <p className="text-muted mt-3">{t(item.descKey)}</p>
+                                    <p className="text-muted mt-3 flex-grow-1">{t(item.descKey)}</p>
                                     <div className="mt-3">
                                         <Link href='' className="text-primary font-weight-600"> {t('features.learnMore')} <Icon icon='mdi:arrow-right' className="ms-2" /> </Link>
                                     </div>

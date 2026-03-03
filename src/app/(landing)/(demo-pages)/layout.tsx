@@ -7,6 +7,7 @@ import Portfolio from "@/components/Portfolio";
 import Pricing from "@/components/Pricing";
 import Skill from "@/components/Skill";
 import Team from "@/components/Team";
+import WhyTrasealio from "@/components/WhyTrasealio";
 import Footer from "@/layouts/Footer";
 import type { ReactNode } from "react";
 
@@ -14,6 +15,7 @@ const layout = ({ children }: Readonly<{ children: ReactNode; }>) => {
     return (
         <>
             {children}
+            <WhyTrasealio />
             <Features />
             <Portfolio />
             <Skill />

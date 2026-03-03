@@ -59,11 +59,11 @@ const TopBar = ({ buttonVariant, isLight }: TopBarType) => {
                         isLight ?
                             <>
                                 {scrollY > 100
-                                    ? <Image src={logoDark} alt='logoDark' height={22} />
-                                    : <Image src={logoLight} alt='logoLight' height={22} />}
+                                    ? <Image src={logoDark} alt='logoDark' height={40} />
+                                    : <Image src={logoLight} alt='logoLight' height={40} />}
                             </>
                             :
-                            <Image src={logoDark} alt='logoDark' height={22} />
+                            <Image src={logoDark} alt='logoDark' height={40} />
                     }
                 </Link>
                 <button onClick={toggleOpen} className="navbar-toggler" type="button">

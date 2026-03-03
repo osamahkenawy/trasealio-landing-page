@@ -24,6 +24,7 @@ import ar9 from '@/assets/images/features/arabic/9.png'
 import ar10 from '@/assets/images/features/arabic/10.png'
 import ar11 from '@/assets/images/features/arabic/11.png'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { Autoplay } from 'swiper/modules'
 import GlightBox from '@/components/GlightBox'
 import { Col, Container, Row } from 'react-bootstrap'
 import Link from 'next/link'
@@ -64,13 +65,19 @@ const Hero = () => {
                     <Col lg={6}>
                         <div className="slider mt-4">
                             <Swiper
-                                slidesPerView={1.5}
+                                modules={[Autoplay]}
+                                slidesPerView={1}
                                 spaceBetween={20}
                                 loop={true}
+                                autoplay={{
+                                    delay: 3000,
+                                    disableOnInteraction: false,
+                                }}
+                                speed={800}
                                 className="swiper-container">
                                 {images.map((img, idx) => (
                                     <SwiperSlide key={idx}>
-                                        <Image src={img} width={1745} height={1000} className="img-fluid" alt={`feature-${idx + 1}`} />
+                                        <Image src={img} width={1745} height={1000} className="img-fluid rounded shadow" alt={`feature-${idx + 1}`} style={{ width: '100%', height: 'auto', objectFit: 'contain' }} />
                                     </SwiperSlide>
                                 ))}
                                 <div className="swiper-pagination" />

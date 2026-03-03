@@ -251,5 +251,39 @@
     "resetPassword": "Reset Password",
     "resetPasswordDesc": "Enter your email address and we'll send you instructions to reset your password.",
     "resetYourPassword": "Reset your Password"
+  },
+  "whyTrasealio": {
+    "subtitle": "WHY TRASEALIO?",
+    "title": "One platform. Every stakeholder. Complete control.",
+    "layers": {
+      "clients": "Merchants",
+      "dispatchers": "Operations",
+      "drivers": "Drivers",
+      "recipients": "Customers"
+    },
+    "clients": {
+      "title": "Merchant Portal",
+      "item1": "Order Management Portal",
+      "item2": "Real-Time Shipment Visibility",
+      "item3": "Analytics & Performance Reports"
+    },
+    "dispatchers": {
+      "title": "Operations Hub",
+      "item1": "AI-Powered Route Optimization",
+      "item2": "Fleet Management Dashboard",
+      "item3": "Automated Dispatch Engine"
+    },
+    "drivers": {
+      "title": "Driver Experience",
+      "item1": "Mobile-First Driver App",
+      "item2": "Turn-by-Turn Navigation",
+      "item3": "Digital Proof of Delivery"
+    },
+    "recipients": {
+      "title": "Customer Experience",
+      "item1": "Live Delivery Tracking Link",
+      "item2": "Instant SMS & Push Notifications",
+      "item3": "Rate & Review Every Delivery"
+    }
   }
 }
