@@ -1,0 +1,39 @@
+
+//
+// counter.scss
+//
+
+.progress{
+  background: $gray-400;
+}
+
+.search-form {
+  input {
+      padding: 17px 20px;
+      width: 100%;
+      font-size: 15px;
+      color: $muted !important;
+      border: none;
+      outline: none !important;
+      padding-right: 160px;
+      padding-left: 30px;
+      background-color: $white;
+      border-radius: 5px;
+      box-shadow: $box-shadow;
+  }
+  button {
+      position: absolute;
+      top: 7px;
+      right: 7px;
+      outline: none !important;
+      border-radius: 5px;
+      font-size: 15px;
+      padding: 9px 30px;
+  }
+  form {
+      position: relative;
+      max-width: 600px;
+      margin: 0px auto;
+  }
+  }
+  

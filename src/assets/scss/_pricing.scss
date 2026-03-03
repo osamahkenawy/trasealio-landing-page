@@ -1,0 +1,193 @@
+
+//
+// pricing.scss
+//
+
+.irs--round{
+  .irs-bar, .irs-to, .irs-from, .irs-single {
+    background: $primary !important;
+    font-size: 11px;
+  }
+  .irs-to, .irs-from, .irs-single{
+    &:before{
+      border-top-color: $primary;
+    }
+  }
+
+  .irs-line{
+    background: $gray-400;
+    border-color: $light;
+  }
+  .irs-grid-text{
+    font-size: 11px;
+    color: $muted;
+  }
+  .irs-min, .irs-max{
+    color: $muted;
+    background: $gray-400;
+    font-size: 11px;
+  }
+
+  .irs-handle{
+    border: 2px solid $primary;
+    width: 20px;
+    height: 20px;
+    top: 27px;
+    background-color: $white !important;
+  }
+}
+
+.pricing-box{
+  padding: 30px 24px;
+  position: relative;
+}
+
+.pricing-badge {
+  position: absolute;
+  top: 0;
+  z-index: 999;
+  right: 0;
+  width: 100%;
+  display: block;
+  font-size: 15px;
+  padding: 0;
+  overflow: hidden;
+  height: 100px;
+  .badge {
+    float: right;
+    transform: rotate(45deg);
+    right: -67px;
+    top: 17px;
+    position: relative;
+    text-align: center;
+    width: 200px;
+    font-size: 13px;
+    margin: 0;
+    padding: 7px 10px;
+    font-weight: 500;
+    color: $white;
+    background: $primary;
+  }
+}
+
+.nav-tabs,.nav-pills {
+  > li {
+      > a {
+          color: $dark;
+      }
+  }
+}
+
+.nav-pills {
+  > a {
+      color: $dark;  
+  }
+}
+
+.pricing-tab-border{
+  border: 1px solid $gray-400;
+}
+
+
+//
+// Pills
+//
+
+
+  .nav-link.active,
+  .show > .nav-link {
+   background-color: $primary !important;
+  }
+
+
+.nav-tabs-custom {
+  border-bottom: 2px solid $gray-400;
+
+
+  .nav-item {
+    position: relative;
+    color: $dark;
+    .nav-link {
+      border: none;
+
+      &::after {
+        content: "";
+        background: $primary;
+        height: 2px;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        bottom: -1px;
+        transition: all 250ms ease 0s;
+        transform: scale(0);
+      }
+
+      &.active{
+        color: $primary;
+        &:after{
+          transform: scale(1);
+        }
+      }
+
+    }
+  }
+}
+
+
+
+.noUi-target {
+  background: #e6f0ff;
+  border: none;
+  height: 5px !important;
+  border-radius: 4px;
+}
+
+.noUi-horizontal .noUi-handle {
+  width: 20px !important;
+  height: 20px !important;
+  border-radius: 24px;
+  top: -8px !important;
+  border: 2px solid #244066 !important;
+} 
+
+.noUi-connect {
+  background: #244066 !important;
+}
+
+.noUi-handle {
+  border: 2px solid #244066;
+  background: #fff;
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  top: -7px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.noUi-tooltip {
+  background: #244066 !important;
+  color: white !important;
+  border-radius: 4px;
+  font-size: 12px;
+  padding: 2px 6px;
+}
+
+.noUi-handle:after {
+  display: none !important;
+}
+
+.slider-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 13px;
+  color: #666;
+}
+
+
+.noUi-target {
+    background: #e6effe !important;
+    border-color: #f8fbff !important;
+    box-shadow: none !important;
+    height: 8px !important;
+}

@@ -1,0 +1,21 @@
+//
+// blog.scss
+//
+
+.blog-box{
+  box-shadow: $box-shadow;
+}
+
+.blog-user{
+  img{
+    width: 36px;
+  }
+}
+
+.blog-user-box{
+  width: 176px;
+    padding: 7px;
+  box-shadow: $box-shadow;
+  position: relative;
+    margin-top: -50px;
+}

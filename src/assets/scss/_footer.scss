@@ -1,0 +1,44 @@
+
+
+//
+// footer.scss
+//
+
+
+.footer-link{
+  a {
+      color: $muted;
+      line-height: 38px;
+      font-size: 15px;
+      transition: all 0.5s;
+      font-weight: 500;
+      &:hover {
+          color: $primary;
+        }
+    }
+}
+
+.social-icons-list{
+  li{
+      margin-bottom: .5rem;
+      a{
+          display: inline-block;
+          width: 34px;
+          height: 34px;
+          line-height: 34px;
+          text-align: center;
+          font-size: 15px;
+          color: $dark;
+          transition: all 0.4s;
+          background-color: darken($light, 4%);
+          border-radius: 50%;
+          &:hover{
+              background-color: $primary;
+              color: $white;
+          }
+      }
+  }
+}
+
+
+

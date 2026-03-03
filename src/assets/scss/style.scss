@@ -1,0 +1,47 @@
+/* Template Name: Floaks
+   Author: Themesdesign
+   Version: 1.0.0
+   Created: Jan 2019
+   File Description: Main Css file of the template
+*/
+
+
+/****************************************\
+
+01.general
+02.helper
+03.components
+04.menu
+05.home
+06.features
+07.portfolio
+08.counter
+09.pricing
+10.team
+11.client
+12.blog
+13.contact
+14.footer
+15.responsive
+
+*****************************************/
+
+
+@import "variables";
+@import "general";
+@import "helper";
+@import "components";
+@import "menu";
+@import "home";
+@import "features";
+@import "portfolio";
+@import "counter";
+@import "pricing";
+@import "team";
+@import "client";
+@import "blog";
+@import "contact";
+@import "footer";
+@import "responsive";
+@import "rtl";
+
