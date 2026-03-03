@@ -21,8 +21,8 @@ const notoSansArabic = Noto_Sans_Arabic({
 });
 
 export const metadata: Metadata = {
-  title: "Floaks",
-  description: "Premium Bootstrap 4 Landing Page Template",
+  title: "Trasealio — Deliver Without Limits",
+  description: "Full-scale delivery operations platform connecting merchants, dispatchers, drivers, recipients, and finance into one unified workflow.",
 };
 
 export default function RootLayout({

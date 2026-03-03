@@ -1,4 +1,8 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Trasealio Landing Page
+
+**Deliver Without Limits.**
+
+Trasealio is a full-scale delivery operations platform connecting merchants, dispatchers, drivers, recipients, and finance into one unified workflow — built on a secure multi-tenant SaaS foundation.
 
 ## Getting Started
 

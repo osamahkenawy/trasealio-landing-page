@@ -46,7 +46,7 @@ const Pricing = () => {
                       <div className="pricing-box shadow mt-4 rounded">
                         <h5>{t('pricing.freelancer')}</h5>
                         <div className="mt-4 text-center pb-2">
-                          <h3 className="text-primary mt-4">$199<span className="f-14 text-muted">{t('pricing.perMonth')}</span></h3>
+                          <h3 className="text-primary mt-4">$49<span className="f-14 text-muted">{t('pricing.perMonth')}</span></h3>
                           <h5 className="f-16 mb-2">{t('pricing.mau1k')}</h5>
                         </div>
                         <div className="mt-4 bg-light p-3">
@@ -84,7 +84,7 @@ const Pricing = () => {
                         </div>
                         <h5>{t('pricing.startup')}</h5>
                         <div className="mt-4 text-center pb-2">
-                          <h3 className="text-primary mt-4">$299<span className="f-14 text-muted">{t('pricing.perMonth')}</span></h3>
+                          <h3 className="text-primary mt-4">$149<span className="f-14 text-muted">{t('pricing.perMonth')}</span></h3>
                           <h5 className="f-16 mb-2">{t('pricing.mau5k')}</h5>
                         </div>
                         <div className="mt-4 bg-light p-3">
@@ -119,7 +119,7 @@ const Pricing = () => {
                       <div className="pricing-box shadow mt-4 rounded">
                         <h5>{t('pricing.enterprise')}</h5>
                         <div className="mt-4 text-center pb-2">
-                          <h3 className="text-primary mt-4">$399<span className="f-14 text-muted">{t('pricing.perMonth')}</span></h3>
+                          <h3 className="text-primary mt-4">$349<span className="f-14 text-muted">{t('pricing.perMonth')}</span></h3>
                           <h5 className="f-16 mb-2">{t('pricing.mau10k')}</h5>
                         </div>
                         <div className="mt-4 bg-light p-3">
@@ -158,7 +158,7 @@ const Pricing = () => {
                       <div className="pricing-box shadow mt-4 rounded">
                         <h5>{t('pricing.freelancer')}</h5>
                         <div className="mt-4 text-center pb-2">
-                          <h3 className="text-primary mt-4">$599<span className="f-14 text-muted">{t('pricing.perMonth')}</span></h3>
+                          <h3 className="text-primary mt-4">$470<span className="f-14 text-muted">{t('pricing.perMonth')}</span></h3>
                           <h5 className="f-16 mb-2">{t('pricing.mau1k')}</h5>
                         </div>
                         <div className="mt-4 bg-light p-3">
@@ -196,7 +196,7 @@ const Pricing = () => {
                         </div>
                         <h5>{t('pricing.startup')}</h5>
                         <div className="mt-4 text-center pb-2">
-                          <h3 className="text-primary mt-4">$799<span className="f-14 text-muted">{t('pricing.perMonth')}</span></h3>
+                          <h3 className="text-primary mt-4">$1,190<span className="f-14 text-muted">{t('pricing.perMonth')}</span></h3>
                           <h5 className="f-16 mb-2">{t('pricing.mau5k')}</h5>
                         </div>
                         <div className="mt-4 bg-light p-3">
@@ -231,7 +231,7 @@ const Pricing = () => {
                       <div className="pricing-box shadow mt-4 rounded">
                         <h5>{t('pricing.enterprise')}</h5>
                         <div className="mt-4 text-center pb-2">
-                          <h3 className="text-primary mt-4">$999<span className="f-14 text-muted">{t('pricing.perMonth')}</span></h3>
+                          <h3 className="text-primary mt-4">$2,790<span className="f-14 text-muted">{t('pricing.perMonth')}</span></h3>
                           <h5 className="f-16 mb-2">{t('pricing.mau10k')}</h5>
                         </div>
                         <div className="mt-4 bg-light p-3">
