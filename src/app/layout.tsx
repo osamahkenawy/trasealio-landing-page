@@ -23,6 +23,15 @@ const notoSansArabic = Noto_Sans_Arabic({
 export const metadata: Metadata = {
   title: "Trasealio — Deliver Without Limits",
   description: "Full-scale delivery operations platform connecting merchants, dispatchers, drivers, recipients, and finance into one unified workflow.",
+  icons: {
+    icon: [
+      { url: '/favicon_trasealio/favicon.ico', sizes: 'any' },
+      { url: '/favicon_trasealio/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon_trasealio/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
+    ],
+    apple: '/favicon_trasealio/apple-touch-icon.png',
+  },
+  manifest: '/favicon_trasealio/site.webmanifest',
 };
 
 export default function RootLayout({
