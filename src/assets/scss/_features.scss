@@ -18,26 +18,30 @@
   color: $white;
   font-size: 40px;
 }
-  .features-img{
-    img{
-      width: 50px;
-      position: absolute;
-      top: 40px;
-      right: 0;
-      transition: .5s ease-in-out;
-      background: $white;
-      opacity: 0.1;
-    }
+  .features-icon-box {
+    position: absolute;
+    top: 32px;
+    right: 28px;
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: rgba($primary, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $primary;
+    opacity: 0.35;
+    transition: all 0.4s ease;
   }
   &:hover{
     background-color: rgba($white, 0.2);
-    
-   .features-img{
-    img{
-      left: 30px;
+
+    .features-icon-box {
       opacity: 1;
+      background: rgba($primary, 0.1);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba($primary, 0.15);
     }
-   }
   }
 }
 

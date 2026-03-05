@@ -114,8 +114,8 @@ const WhyTrasealio = () => {
                         <svg viewBox="0 0 276 420" width="276" role="img" aria-hidden="true">
                             <defs>
                                 <linearGradient id="active-diamond-gradient" x1="138" y1="0" x2="138" y2="140" gradientUnits="userSpaceOnUse">
-                                    <stop stopColor="#4C87F7" />
-                                    <stop offset="1" stopColor="#0A51D8" />
+                                    <stop stopColor="#3A6090" />
+                                    <stop offset="1" stopColor="#244066" />
                                 </linearGradient>
                             </defs>
 

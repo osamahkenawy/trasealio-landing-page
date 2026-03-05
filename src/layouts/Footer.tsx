@@ -2,6 +2,7 @@
 import Image from 'next/image'
 import React from 'react'
 import logo from '@/assets/images/logo-dark.png'
+import traseallaLogo from '@/assets/images/logos/trasealla_main_company.png'
 import Link from 'next/link'
 import appleStore from '@/assets/images/apple-store.png'
 import googlePlay from '@/assets/images/google-play.png'
@@ -92,8 +93,13 @@ const Footer = () => {
                 <hr className="my-5" />
                 <Row>
                     <Col xs={12}>
-                        <div className="text-center">
-                            <p className="text-muted mb-0">{new Date().getFullYear()} {t('footer.copyright')}</p>
+                        <div className="footer-bottom">
+                            <p className="footer-copyright">{new Date().getFullYear()} {t('footer.copyright')}</p>
+                            <div className="footer-parent-brand">
+                                <span className="footer-parent-divider"></span>
+                                <span className="footer-parent-label">{t('footer.productOf')}</span>
+                                <Image src={traseallaLogo} alt="Trasealla — Future Systems" height={26} className="footer-parent-logo" />
+                            </div>
                         </div>
                     </Col>
                 </Row>

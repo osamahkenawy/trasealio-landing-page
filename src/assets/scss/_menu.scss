@@ -167,3 +167,108 @@
 .nav-sticky .navbar-nav {
     margin-top: 0px;
 }
+
+// Language Dropdown — Premium Style
+.lang-dropdown {
+  font-weight: 500;
+  color: $dark !important;
+  border: 1.5px solid $gray-300;
+  border-radius: 20px;
+  padding: 5px 14px !important;
+  transition: all 0.25s ease;
+  gap: 6px;
+
+  &:hover {
+    border-color: $primary;
+    background: rgba($primary, 0.04);
+  }
+
+  &::after {
+    margin-left: 4px;
+    vertical-align: middle;
+    border-top-color: $muted;
+    transition: transform 0.2s ease;
+  }
+
+  &.show::after {
+    transform: rotate(180deg);
+  }
+}
+
+.lang-dropdown-menu {
+  min-width: 200px;
+  padding: 8px;
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.06);
+  animation: langDropIn 0.2s ease-out;
+  overflow: hidden;
+
+  .dropdown-item.lang-item {
+    display: flex !important;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    color: $dark !important;
+    background: transparent !important;
+    transition: all 0.15s ease;
+
+    &:hover {
+      background: $gray-100 !important;
+      color: $dark !important;
+    }
+
+    &.active,
+    &:active {
+      background: $primary !important;
+      color: $white !important;
+
+      .lang-name {
+        color: $white !important;
+      }
+
+      .lang-check {
+        color: $white !important;
+      }
+    }
+
+    .lang-flag {
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    .lang-name {
+      flex: 1;
+      letter-spacing: 0.2px;
+    }
+
+    .lang-check {
+      font-size: 18px;
+      color: $primary;
+      margin-left: auto;
+    }
+
+    &.text-end {
+      flex-direction: row-reverse;
+
+      .lang-check {
+        margin-left: 0;
+        margin-right: auto;
+      }
+    }
+  }
+}
+
+@keyframes langDropIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

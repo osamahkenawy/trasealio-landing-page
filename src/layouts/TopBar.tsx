@@ -15,7 +15,7 @@ type TopBarType = {
     buttonVariant?: string
 }
 
-const sections = ['home', 'portfolio', 'pricing', 'team', 'testimonial', 'contact']
+const sections = ['home', 'portfolio', 'pricing', 'contact']
 
 const TopBar = ({ buttonVariant, isLight }: TopBarType) => {
     const [open, setOpen] = useState(false)
@@ -54,7 +54,7 @@ const TopBar = ({ buttonVariant, isLight }: TopBarType) => {
     return (
         <nav className={`navbar navbar-expand-lg fixed-top navbar-custom sticky ${isLight && 'navbar-light'} ${scrollY > 100 ? 'nav-sticky' : ''}`}>
             <Container>
-                <Link className="navbar-brand logo text-uppercase" href="#home">
+                <Link className="navbar-brand logo text-uppercase" href="/#home">
                     {
                         isLight ?
                             <>
@@ -74,7 +74,7 @@ const TopBar = ({ buttonVariant, isLight }: TopBarType) => {
                         <ul className="navbar-nav ms-auto navbar-center" id="mySidenav">
                             {sections.map(section => (
                                 <li key={section} className={`nav-item ${activeSection === section ? 'active' : ''}`}>
-                                    <a href={`#${section}`} className="nav-link">
+                                    <a href={`/#${section}`} className="nav-link">
                                         {t(`nav.${section}`)}
                                     </a>
                                 </li>
@@ -92,16 +92,24 @@ const TopBar = ({ buttonVariant, isLight }: TopBarType) => {
                                     <span className="f-14">{localeNames[locale]}</span>
                                 </Dropdown.Toggle>
                                 <Dropdown.Menu align="end" className="lang-dropdown-menu">
-                                    {locales.map((loc) => (
-                                        <Dropdown.Item
-                                            key={loc}
-                                            active={locale === loc}
-                                            onClick={() => setLocale(loc as Locale)}
-                                            className={loc === 'ar' ? 'text-end' : ''}
-                                        >
-                                            {localeNames[loc]}
-                                        </Dropdown.Item>
-                                    ))}
+                                    {locales.map((loc) => {
+                                        const isActive = locale === loc
+                                        return (
+                                            <Dropdown.Item
+                                                key={loc}
+                                                active={isActive}
+                                                onClick={() => setLocale(loc as Locale)}
+                                                className={`lang-item ${loc === 'ar' ? 'text-end' : ''}`}
+                                                style={isActive ? { background: '#244066', color: '#fff' } : {}}
+                                            >
+                                                <span className="lang-flag">{loc === 'en' ? '🇺🇸' : '🇸🇦'}</span>
+                                                <span className="lang-name" style={isActive ? { color: '#fff' } : {}}>{localeNames[loc]}</span>
+                                                {isActive && (
+                                                    <Icon icon='mdi:check-circle' className="lang-check" style={{ color: '#fff' }} />
+                                                )}
+                                            </Dropdown.Item>
+                                        )
+                                    })}
                                 </Dropdown.Menu>
                             </Dropdown>
                             <div className="d-none d-lg-inline-block">
