@@ -9,8 +9,15 @@ import { sendMessage } from "./SendMessage";
 import { useTranslation } from '@/i18n';
 
 const Contact = () => {
-  const [status, setStatus] = useState<string | null>(null);
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const [statusMsg, setStatusMsg] = useState<string>('');
+  const [emailError, setEmailError] = useState<string>('');
   const { t } = useTranslation();
+
+  const validateEmail = (email: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
 
   return (
     <section className="section" id="contact">
@@ -79,8 +86,37 @@ const Contact = () => {
               <div className="custom-form mt-4">
                 <form
                   action={async (formData) => {
-                    const res = await sendMessage(formData);
-                    setStatus(res.success ? t('contact.messageSent') : t('contact.messageFailed'));
+                    const email = formData.get("email") as string;
+                    setEmailError('');
+
+                    if (!email || !validateEmail(email)) {
+                      setEmailError(t('contact.emailRequired'));
+                      return;
+                    }
+
+                    setStatus('sending');
+                    setStatusMsg('');
+                    try {
+                      const res = await sendMessage(formData);
+                      if (res.success) {
+                        setStatus('success');
+                        setStatusMsg(t('contact.messageSent'));
+                        // Reset form fields
+                        const form = document.querySelector('#contact form') as HTMLFormElement;
+                        if (form) form.reset();
+                        // Auto-clear success status after 5s so form is clearly ready for re-use
+                        setTimeout(() => {
+                          setStatus('idle');
+                          setStatusMsg('');
+                        }, 5000);
+                      } else {
+                        setStatus('error');
+                        setStatusMsg(res.message || t('contact.messageFailed'));
+                      }
+                    } catch {
+                      setStatus('error');
+                      setStatusMsg(t('contact.messageFailed'));
+                    }
                   }}
                 >
                   <Row>
@@ -93,7 +129,7 @@ const Contact = () => {
                     <Col lg={6}>
                       <div className="form-group mt-1">
                         <label className="contact-lable">{t('contact.lastName')}</label>
-                        <input name="lastname" className="form-control" type="text" required />
+                        <input name="lastname" className="form-control" type="text" />
                       </div>
                     </Col>
                   </Row>
@@ -101,8 +137,21 @@ const Contact = () => {
                   <Row>
                     <Col lg={12}>
                       <div className="form-group mt-1">
-                        <label className="contact-lable">{t('contact.emailAddress')}</label>
-                        <input name="email" className="form-control" type="email" required />
+                        <label className="contact-lable">
+                          {t('contact.emailAddress')} <span style={{ color: '#e74c3c' }}>*</span>
+                        </label>
+                        <input
+                          name="email"
+                          className={`form-control ${emailError ? 'is-invalid' : ''}`}
+                          type="email"
+                          required
+                          onChange={() => emailError && setEmailError('')}
+                        />
+                        {emailError && (
+                          <div className="invalid-feedback" style={{ display: 'block' }}>
+                            {emailError}
+                          </div>
+                        )}
                       </div>
                     </Col>
                   </Row>
@@ -111,7 +160,7 @@ const Contact = () => {
                     <Col lg={12}>
                       <div className="form-group mt-1">
                         <label className="contact-lable">{t('contact.subject')}</label>
-                        <input name="subject" className="form-control" type="text" required />
+                        <input name="subject" className="form-control" type="text" />
                       </div>
                     </Col>
                   </Row>
@@ -120,18 +169,38 @@ const Contact = () => {
                     <Col lg={12}>
                       <div className="form-group mt-1">
                         <label className="contact-lable">{t('contact.yourMessage')}</label>
-                        <textarea name="comments" rows={5} className="form-control" required />
+                        <textarea name="comments" rows={5} className="form-control" />
                       </div>
                     </Col>
                   </Row>
 
                   <Row>
                     <Col lg={12} className="mt-3 text-right">
-                      <button type="submit" className="submitBnt btn btn-primary btn-round">
-                        {t('contact.sendMessage')}
+                      <button
+                        type="submit"
+                        className="submitBnt btn btn-primary btn-round"
+                        disabled={status === 'sending'}
+                      >
+                        {status === 'sending' ? (
+                          <><span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>{t('contact.sending')}</>
+                        ) : t('contact.sendMessage')}
                       </button>
                     </Col>
                   </Row>
+
+                  {statusMsg && (
+                    <Row className="mt-3">
+                      <Col lg={12}>
+                        <div className={`alert ${status === 'success' ? 'alert-success' : 'alert-danger'} py-2`} role="alert">
+                          <Icon icon={status === 'success' ? 'mdi:check-circle' : 'mdi:alert-circle'} className="me-2" />
+                          {statusMsg}
+                          {status === 'success' && (
+                            <small className="d-block mt-1 text-muted">{t('contact.confirmationNote')}</small>
+                          )}
+                        </div>
+                      </Col>
+                    </Row>
+                  )}
                 </form>
               </div>
             </div>

@@ -13,11 +13,15 @@ import { locales, localeNames, type Locale } from '@/i18n/types'
 type TopBarType = {
     isLight?: boolean
     buttonVariant?: string
+    hideNav?: boolean
+    ctaLabel?: string
+    ctaHref?: string
+    solidBg?: boolean
 }
 
 const sections = ['home', 'portfolio', 'pricing', 'contact']
 
-const TopBar = ({ buttonVariant, isLight }: TopBarType) => {
+const TopBar = ({ buttonVariant, isLight, hideNav, ctaLabel, ctaHref, solidBg }: TopBarType) => {
     const [open, setOpen] = useState(false)
     const { scrollY } = useScrollEvent();
     const [activeSection, setActiveSection] = useState('home')
@@ -52,7 +56,7 @@ const TopBar = ({ buttonVariant, isLight }: TopBarType) => {
     }, [])
 
     return (
-        <nav className={`navbar navbar-expand-lg fixed-top navbar-custom sticky ${isLight && 'navbar-light'} ${scrollY > 100 ? 'nav-sticky' : ''}`}>
+        <nav className={`navbar navbar-expand-lg fixed-top navbar-custom sticky ${isLight && 'navbar-light'} ${(solidBg || scrollY > 100) ? 'nav-sticky' : ''}`}>
             <Container>
                 <Link className="navbar-brand logo text-uppercase" href="/#home">
                     {
@@ -66,9 +70,49 @@ const TopBar = ({ buttonVariant, isLight }: TopBarType) => {
                             <Image src={logoDark} alt='logoDark' height={40} />
                     }
                 </Link>
-                <button onClick={toggleOpen} className="navbar-toggler" type="button">
-                    <Icon icon='mdi:menu' />
-                </button>
+                {!hideNav && (
+                    <button onClick={toggleOpen} className="navbar-toggler" type="button">
+                        <Icon icon='mdi:menu' />
+                    </button>
+                )}
+                {hideNav ? (
+                    <div className="d-flex align-items-center gap-2 ms-auto">
+                        <Dropdown>
+                            <Dropdown.Toggle
+                                variant="link"
+                                className="nav-link lang-dropdown p-1 d-flex align-items-center"
+                                id="lang-dropdown"
+                                style={{ textDecoration: 'none', boxShadow: 'none' }}
+                            >
+                                <Icon icon='mdi:web' className="me-1" style={{ fontSize: '18px' }} />
+                                <span className="f-14">{localeNames[locale]}</span>
+                            </Dropdown.Toggle>
+                            <Dropdown.Menu align="end" className="lang-dropdown-menu">
+                                {locales.map((loc) => {
+                                    const isActive = locale === loc
+                                    return (
+                                        <Dropdown.Item
+                                            key={loc}
+                                            active={isActive}
+                                            onClick={() => setLocale(loc as Locale)}
+                                            className={`lang-item ${loc === 'ar' ? 'text-end' : ''}`}
+                                            style={isActive ? { background: '#244066', color: '#fff' } : {}}
+                                        >
+                                            <span className="lang-flag">{loc === 'en' ? '🇺🇸' : '🇸🇦'}</span>
+                                            <span className="lang-name" style={isActive ? { color: '#fff' } : {}}>{localeNames[loc]}</span>
+                                            {isActive && (
+                                                <Icon icon='mdi:check-circle' className="lang-check" style={{ color: '#fff' }} />
+                                            )}
+                                        </Dropdown.Item>
+                                    )
+                                })}
+                            </Dropdown.Menu>
+                        </Dropdown>
+                        <Link href={ctaHref || '/'} className={`btn btn-sm btn-round btn-${buttonVariant ? buttonVariant : 'primary'}`}>
+                            {ctaLabel || t('nav.signUp')}
+                        </Link>
+                    </div>
+                ) : (
                 <Collapse in={open} className="navbar-collapse">
                     <div>
                         <ul className="navbar-nav ms-auto navbar-center" id="mySidenav">
@@ -118,6 +162,7 @@ const TopBar = ({ buttonVariant, isLight }: TopBarType) => {
                         </div>
                     </div>
                 </Collapse>
+                )}
             </Container>
         </nav>
     )

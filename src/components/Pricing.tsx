@@ -6,6 +6,11 @@ import { useTranslation } from '@/i18n'
 import { useCurrency, POPULAR_CURRENCIES } from '@/hooks/useCurrency'
 
 /* ──────────────────────────────────────────
+   API base URL — reads from env or defaults to localhost:4001
+   ────────────────────────────────────────── */
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4001'
+
+/* ──────────────────────────────────────────
    Slider stops (logarithmic-like scale)
    ────────────────────────────────────────── */
 const STOPS = [0, 500, 1_000, 10_000, 100_000, 250_000, 500_000, 1_000_000]
@@ -37,7 +42,7 @@ function stopsToSlider(stops: number): number {
 }
 
 /* ──────────────────────────────────────────
-   Plan definitions
+   Plan definitions — fallback (used if API is unreachable)
    ────────────────────────────────────────── */
 interface Plan {
   key: string
@@ -48,6 +53,7 @@ interface Plan {
   iconSvg: React.ReactNode
   badgeKey?: string
   featureCount: number
+  featureKeys?: string[]
 }
 
 const StarterIcon = () => (
@@ -62,10 +68,19 @@ const EnterpriseIcon = () => (
   <svg width="41" height="40" viewBox="0 0 41 40" fill="none"><path d="M14.336 10.763c-.001-.894-.002-1.342.154-1.714a2 2 0 0 1 .645-.827c.323-.242.757-.35 1.625-.568l17.597-4.399c1.356-.339 2.033-.508 2.567-.344.468.145.867.456 1.12.875.29.478.29 1.176.29 2.573v28.702a2 2 0 0 1-1.2 1.834 2 2 0 0 1-.8.166H17.568a2 2 0 0 1-2-2L14.336 10.763Z" fill="#B7C2D6"/><g style={{ mixBlendMode: 'multiply' }}><path d="M2.333 24.769a2 2 0 0 1 .156-1.711 2 2 0 0 1 .645-.826c.323-.242.756-.35 1.622-.567l17.6-4.407c1.356-.34 2.034-.509 2.567-.344a2 2 0 0 1 1.12.875c.29.478.29 1.177.29 2.574v14.699a2 2 0 0 1-2 2H5.533a2 2 0 0 1-2-2V24.77Z" fill="url(#eg)"/></g><defs><linearGradient id="eg" x1="14.333" y1="16.262" x2="14.333" y2="38.261" gradientUnits="userSpaceOnUse"><stop stopColor="#78A4F9"/><stop offset="1" stopColor="#4C87F7"/></linearGradient></defs></svg>
 )
 
-const PLANS: Plan[] = [
-  { key: 'starter', base: 125, baseStops: 1_000, extraRate: 0.04, featured: false, iconSvg: <StarterIcon />, featureCount: 6 },
-  { key: 'growth', base: 200, baseStops: 2_000, extraRate: 0.06, featured: true, badgeKey: 'pricing.bestForFleets', iconSvg: <GrowthIcon />, featureCount: 5 },
-  { key: 'enterprise', base: 1_000, baseStops: 12_000, extraRate: 0.07, featured: false, iconSvg: <EnterpriseIcon />, featureCount: 4 },
+/** Icon mapping by slug */
+const PLAN_ICONS: Record<string, React.ReactNode> = {
+  starter: <StarterIcon />,
+  growth: <GrowthIcon />,
+  professional: <GrowthIcon />,
+  enterprise: <EnterpriseIcon />,
+}
+
+/** Hardcoded fallback plans (used if API is unreachable) */
+const FALLBACK_PLANS: Plan[] = [
+  { key: 'starter', base: 750, baseStops: 1_000, extraRate: 0.04, featured: false, iconSvg: <StarterIcon />, featureCount: 6, featureKeys: ['starterF1','starterF2','starterF3','starterF4','starterF5','starterF6'] },
+  { key: 'professional', base: 1350, baseStops: 2_000, extraRate: 0.06, featured: true, badgeKey: 'pricing.bestForFleets', iconSvg: <GrowthIcon />, featureCount: 5, featureKeys: ['growthF1','growthF2','growthF3','growthF4','growthF5'] },
+  { key: 'enterprise', base: 2500, baseStops: 12_000, extraRate: 0.07, featured: false, iconSvg: <EnterpriseIcon />, featureCount: 4, featureKeys: ['enterpriseF1','enterpriseF2','enterpriseF3','enterpriseF4'] },
 ]
 
 /* ──────────────────────────────────────────
@@ -187,6 +202,37 @@ const Pricing = () => {
   const isRtl = dir === 'rtl'
   const { code: currCode, symbol: currSym, formatPrice, setCurrency, loading: currLoading } = useCurrency()
 
+  /* ── Fetch plans from backend API ── */
+  const [plans, setPlans] = useState<Plan[]>(FALLBACK_PLANS)
+  useEffect(() => {
+    let cancelled = false
+    async function fetchPlans() {
+      try {
+        const res = await fetch(`${API_BASE}/api/public/pricing`, { signal: AbortSignal.timeout(5000) })
+        if (!res.ok) throw new Error('API error')
+        const data = await res.json()
+        if (!cancelled && data.success && data.plans?.length) {
+          const mapped: Plan[] = data.plans.map((p: any) => ({
+            key: p.key,
+            base: p.base,
+            baseStops: p.baseStops,
+            extraRate: p.extraRate,
+            featured: p.featured,
+            badgeKey: p.badgeKey || undefined,
+            iconSvg: PLAN_ICONS[p.key] || <StarterIcon />,
+            featureCount: (p.featureKeys || []).length,
+            featureKeys: p.featureKeys || [],
+          }))
+          setPlans(mapped)
+        }
+      } catch {
+        // Keep fallback plans if API is unreachable
+      }
+    }
+    fetchPlans()
+    return () => { cancelled = true }
+  }, [])
+
   /* slider state (0-100) */
   const [sliderPct, setSliderPct] = useState(() => stopsToSlider(500))
   const deliveries = useMemo(() => sliderToStops(sliderPct), [sliderPct])
@@ -297,10 +343,12 @@ const Pricing = () => {
 
         {/* ── Plan cards ── */}
         <div className="pricing-cards-grid">
-          {PLANS.map(plan => {
+          {plans.map(plan => {
             const { price, extra, extraCost } = computePrice(plan)
             const headerKey = `pricing.${plan.key}Header`
-            const featureKeys = Array.from({ length: plan.featureCount }, (_, i) => `pricing.${plan.key}F${i + 1}`)
+            const featureKeys = plan.featureKeys?.length
+              ? plan.featureKeys.map(fk => `pricing.${fk}`)
+              : Array.from({ length: plan.featureCount }, (_, i) => `pricing.${plan.key}F${i + 1}`)
             return (
               <div key={plan.key} className={`pricing-card ${plan.featured ? 'pricing-card--featured' : ''}`}>
                 <div className="pricing-card-top">

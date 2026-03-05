@@ -1,0 +1,519 @@
+//
+// _pages.scss — Shared styles for footer landing pages (Features, Integrations, API Docs, Security, Careers, Privacy, Terms, Partners)
+//
+
+// ── Generic Page Hero (reused across all pages) ──
+.page-hero {
+  position: relative;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 140px 0 80px;
+  background: linear-gradient(135deg, #0a1628 0%, #152238 30%, $primary 70%, #1a3a5c 100%);
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba($success, 0.1) 0%, transparent 70%);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .page-hero-decor {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+
+    .decor-circle {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.06);
+
+      &:nth-child(1) {
+        width: 350px;
+        height: 350px;
+        top: -80px;
+        left: -60px;
+        border-width: 2px;
+        border-color: rgba($success, 0.1);
+      }
+
+      &:nth-child(2) {
+        width: 200px;
+        height: 200px;
+        bottom: -40px;
+        right: 10%;
+        background: rgba($primary, 0.08);
+      }
+
+      &:nth-child(3) {
+        width: 100px;
+        height: 100px;
+        top: 30%;
+        right: 5%;
+        background: rgba($success, 0.06);
+      }
+    }
+  }
+
+  .page-hero-tag {
+    display: inline-block;
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: $success;
+    margin-bottom: 16px;
+    padding: 6px 16px;
+    background: rgba($success, 0.1);
+    border-radius: 20px;
+    border: 1px solid rgba($success, 0.2);
+  }
+
+  .page-hero-title {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.15;
+    margin-bottom: 18px;
+    letter-spacing: -0.5px;
+  }
+
+  .page-hero-subtitle {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: rgba(#fff, 0.7);
+    max-width: 620px;
+    margin: 0 auto;
+  }
+}
+
+// ── Section tag & title (reused) ──
+.page-section-tag {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: $primary;
+  margin-bottom: 12px;
+}
+
+.page-section-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: $dark;
+  line-height: 1.25;
+  margin-bottom: 16px;
+}
+
+.page-section-subtitle {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: $muted;
+  max-width: 600px;
+}
+
+// ── Feature / icon cards grid ──
+.page-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px 28px;
+  height: 100%;
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 0;
+    background: $primary;
+    border-radius: 0 0 4px 0;
+    transition: height 0.3s ease;
+  }
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 36px rgba($primary, 0.08);
+    border-color: rgba($primary, 0.12);
+
+    &::before {
+      height: 100%;
+    }
+  }
+
+  .page-card-icon {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: rgba($primary, 0.07);
+    color: $primary;
+    font-size: 26px;
+    margin-bottom: 18px;
+  }
+
+  .page-card-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: $dark;
+    margin-bottom: 10px;
+  }
+
+  .page-card-text {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: $muted;
+    margin-bottom: 0;
+  }
+}
+
+// ── CTA block (reused across pages) ──
+.page-cta {
+  .page-cta-title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: $dark;
+    margin-bottom: 16px;
+  }
+  .page-cta-text {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: $muted;
+    max-width: 600px;
+    margin: 0 auto 28px;
+  }
+  .page-cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+// ── Stat badges (horizontal) ──
+.page-stats {
+  position: relative;
+  background: linear-gradient(135deg, #0a1628 0%, $primary 100%);
+  padding: 80px 0;
+  overflow: hidden;
+
+  .page-stat-card {
+    text-align: center;
+    padding: 24px 16px;
+
+    .page-stat-value {
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .page-stat-label {
+      font-size: 0.9rem;
+      color: rgba(#fff, 0.6);
+      margin-bottom: 0;
+    }
+  }
+}
+
+// ── Content sections ──
+.page-content-section {
+  .page-content-text {
+    font-size: 1rem;
+    line-height: 1.85;
+    color: $muted;
+    margin-bottom: 16px;
+  }
+
+  h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: $dark;
+    margin-bottom: 12px;
+    margin-top: 32px;
+  }
+
+  ul {
+    padding-left: 20px;
+    margin-bottom: 20px;
+
+    li {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: $muted;
+      margin-bottom: 8px;
+
+      strong {
+        color: $dark;
+      }
+    }
+  }
+}
+
+// ── Legal / policy pages ──
+.legal-page {
+  .legal-effective-date {
+    font-size: 0.85rem;
+    color: $muted;
+    margin-bottom: 28px;
+    font-weight: 500;
+  }
+
+  .legal-section {
+    margin-bottom: 36px;
+
+    h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: $dark;
+      margin-bottom: 12px;
+    }
+
+    p {
+      font-size: 0.95rem;
+      line-height: 1.85;
+      color: $muted;
+      margin-bottom: 12px;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin-bottom: 16px;
+
+      li {
+        font-size: 0.95rem;
+        line-height: 1.8;
+        color: $muted;
+        margin-bottom: 6px;
+      }
+    }
+  }
+}
+
+// ── Careers page ──
+.careers-culture {
+  .culture-card {
+    text-align: center;
+    padding: 28px 20px;
+
+    .culture-icon {
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba($primary, 0.07);
+      border-radius: 16px;
+      color: $primary;
+      font-size: 28px;
+      margin: 0 auto 16px;
+    }
+
+    h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: $dark;
+      margin-bottom: 8px;
+    }
+
+    p {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: $muted;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.careers-openings {
+  .opening-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 28px 32px;
+    border: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    transition: all 0.3s ease;
+    margin-bottom: 16px;
+
+    &:hover {
+      box-shadow: 0 8px 28px rgba($primary, 0.08);
+      border-color: rgba($primary, 0.12);
+    }
+
+    .opening-info {
+      h4 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: $dark;
+        margin-bottom: 6px;
+      }
+
+      .opening-meta {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        font-size: 0.85rem;
+        color: $muted;
+
+        span {
+          display: flex;
+          align-items: center;
+          gap: 4px;
+        }
+      }
+    }
+  }
+}
+
+// ── Partners page ──
+.partners-types {
+  .partner-type-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 40px 32px;
+    height: 100%;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+    border: 1px solid rgba(0,0,0,0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba($primary, 0.1);
+    }
+
+    .partner-type-icon {
+      width: 64px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba($primary, 0.08);
+      border-radius: 18px;
+      color: $primary;
+      font-size: 32px;
+      margin: 0 auto 20px;
+    }
+
+    h4 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: $dark;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 0.93rem;
+      line-height: 1.75;
+      color: $muted;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.partners-benefits {
+  .benefit-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 28px;
+
+    .benefit-icon {
+      width: 44px;
+      height: 44px;
+      min-width: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba($success, 0.1);
+      border-radius: 12px;
+      color: $success;
+      font-size: 22px;
+    }
+
+    .benefit-text {
+      h5 {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: $dark;
+        margin-bottom: 4px;
+      }
+
+      p {
+        font-size: 0.9rem;
+        line-height: 1.7;
+        color: $muted;
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+// ── Responsive ──
+@media (max-width: 991px) {
+  .page-hero {
+    min-height: 360px;
+    padding: 120px 0 60px;
+
+    .page-hero-title {
+      font-size: 2.2rem;
+    }
+  }
+
+  .careers-openings .opening-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 575px) {
+  .page-hero {
+    min-height: 300px;
+    padding: 110px 0 50px;
+
+    .page-hero-title {
+      font-size: 1.8rem;
+    }
+
+    .page-hero-decor {
+      display: none;
+    }
+  }
+
+  .page-section-title {
+    font-size: 1.7rem;
+  }
+}

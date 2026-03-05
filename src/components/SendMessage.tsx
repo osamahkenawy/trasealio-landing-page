@@ -1,19 +1,25 @@
 "use server";
 
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4001';
+
 export async function sendMessage(formData: FormData) {
-    const firstName = formData.get("firstname");
-    const lastName = formData.get("lastname");
-    const email = formData.get("email");
-    const subject = formData.get("subject");
-    const message = formData.get("comments");
+    const firstName = formData.get("firstname") as string;
+    const lastName = formData.get("lastname") as string;
+    const email = formData.get("email") as string;
+    const subject = formData.get("subject") as string;
+    const message = formData.get("comments") as string;
 
-    console.log("Contact form submission:", {
-        firstName,
-        lastName,
-        email,
-        subject,
-        message,
-    });
-
-    return { success: true };
+    try {
+        const res = await fetch(`${API_BASE}/api/public/contact`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            cache: 'no-store',
+            body: JSON.stringify({ firstName, lastName, email, subject, message }),
+        });
+        const data = await res.json();
+        return { success: data.success, message: data.message };
+    } catch (error) {
+        console.error("Contact form submission error:", error);
+        return { success: false, message: 'Failed to send message. Please try again.' };
+    }
 }

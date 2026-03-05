@@ -30,10 +30,10 @@ const Footer = () => {
                                 <div className="mt-4">
                                     <h5 className="f-18">{t('footer.features')}</h5>
                                     <ul className="list-unstyled footer-link mt-3">
-                                        <li><Link href=''>{t('footer.sixHome')}</Link></li>
-                                        <li><Link href=''>{t('footer.technology')}</Link></li>
-                                        <li><Link href=''>{t('footer.newsEvents')}</Link></li>
-                                        <li><Link href=''>{t('footer.company')}</Link></li>
+                                        <li><Link href='/features'>{t('footer.sixHome')}</Link></li>
+                                        <li><Link href='/integrations'>{t('footer.technology')}</Link></li>
+                                        <li><Link href='/api-docs'>{t('footer.newsEvents')}</Link></li>
+                                        <li><Link href='/about'>{t('footer.company')}</Link></li>
                                     </ul>
                                 </div>
                             </Col>
@@ -41,10 +41,10 @@ const Footer = () => {
                                 <div className="mt-4">
                                     <h5 className="f-18">{t('footer.policies')}</h5>
                                     <ul className="list-unstyled footer-link mt-3">
-                                        <li><Link href=''>{t('footer.security')}</Link></li>
-                                        <li><Link href=''>{t('footer.jobs')}</Link></li>
-                                        <li><Link href=''>{t('footer.policy')}</Link></li>
-                                        <li><Link href=''>{t('footer.condition')}</Link></li>
+                                        <li><Link href='/security'>{t('footer.security')}</Link></li>
+                                        <li><Link href='/careers'>{t('footer.jobs')}</Link></li>
+                                        <li><Link href='/privacy-policy'>{t('footer.policy')}</Link></li>
+                                        <li><Link href='/terms'>{t('footer.condition')}</Link></li>
                                     </ul>
                                 </div>
                             </Col>
@@ -52,10 +52,10 @@ const Footer = () => {
                                 <div className="mt-4">
                                     <h5 className="f-18">{t('footer.company')}</h5>
                                     <ul className="list-unstyled footer-link mt-3">
-                                        <li><Link href=''>{t('footer.leadership')}</Link></li>
-                                        <li><Link href=''>{t('footer.careers')}</Link></li>
-                                        <li><Link href=''>{t('footer.contactUs')}</Link></li>
-                                        <li><Link href=''>{t('footer.maps')}</Link></li>
+                                        <li><Link href='/about'>{t('footer.leadership')}</Link></li>
+                                        <li><Link href='/careers'>{t('footer.careers')}</Link></li>
+                                        <li><Link href='/#contact'>{t('footer.contactUs')}</Link></li>
+                                        <li><Link href='/partners'>{t('footer.maps')}</Link></li>
                                     </ul>
                                 </div>
                             </Col>

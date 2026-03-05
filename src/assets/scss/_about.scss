@@ -1,0 +1,569 @@
+//
+// _about.scss — About Us page
+//
+
+// ── Hero ──
+.about-hero {
+  position: relative;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 160px 0 100px;
+  background: linear-gradient(135deg, #0a1628 0%, #152238 30%, $primary 70%, #1a3a5c 100%);
+
+  // Subtle grid pattern
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  // Radial glow accent
+  &::after {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba($success, 0.12) 0%, transparent 70%);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  // Floating decorative shapes
+  .about-hero-decor {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+
+    .decor-circle {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+
+      &:nth-child(1) {
+        width: 400px;
+        height: 400px;
+        top: -100px;
+        left: -80px;
+        border-width: 2px;
+        border-color: rgba($success, 0.1);
+      }
+
+      &:nth-child(2) {
+        width: 250px;
+        height: 250px;
+        bottom: -60px;
+        right: 10%;
+        background: rgba($primary, 0.08);
+      }
+
+      &:nth-child(3) {
+        width: 120px;
+        height: 120px;
+        top: 30%;
+        right: 5%;
+        background: rgba($success, 0.06);
+      }
+
+      &:nth-child(4) {
+        width: 80px;
+        height: 80px;
+        bottom: 20%;
+        left: 15%;
+        border-color: rgba($success, 0.12);
+        border-width: 2px;
+      }
+    }
+
+    .decor-line {
+      position: absolute;
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), transparent);
+      width: 1px;
+
+      &:nth-child(5) {
+        height: 200px;
+        top: 0;
+        left: 20%;
+      }
+
+      &:nth-child(6) {
+        height: 150px;
+        top: 0;
+        right: 25%;
+      }
+
+      &:nth-child(7) {
+        height: 120px;
+        bottom: 0;
+        left: 40%;
+        background: linear-gradient(0deg, rgba(255,255,255,0.06), transparent);
+      }
+    }
+
+    // Delivery-themed dot pattern
+    .decor-dots {
+      position: absolute;
+      top: 20%;
+      left: 8%;
+      display: grid;
+      grid-template-columns: repeat(4, 8px);
+      gap: 12px;
+
+      span {
+        width: 3px;
+        height: 3px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+      }
+    }
+
+    .decor-dots-right {
+      position: absolute;
+      bottom: 25%;
+      right: 8%;
+      display: grid;
+      grid-template-columns: repeat(3, 8px);
+      gap: 12px;
+
+      span {
+        width: 3px;
+        height: 3px;
+        border-radius: 50%;
+        background: rgba($success, 0.15);
+      }
+    }
+  }
+
+  .about-hero-tag {
+    display: inline-block;
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: $success;
+    margin-bottom: 20px;
+    position: relative;
+    padding: 6px 16px;
+    background: rgba($success, 0.1);
+    border-radius: 20px;
+    border: 1px solid rgba($success, 0.2);
+  }
+
+  .about-hero-title {
+    font-size: 3.2rem;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.15;
+    margin-bottom: 24px;
+    letter-spacing: -0.5px;
+  }
+
+  .about-hero-subtitle {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: rgba(#fff, 0.7);
+    max-width: 620px;
+    margin: 0 auto 36px;
+  }
+
+  // Scroll indicator
+  .about-hero-scroll {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(#fff, 0.4);
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    animation: hero-bounce 2s ease infinite;
+
+    .scroll-line {
+      width: 1px;
+      height: 30px;
+      background: linear-gradient(180deg, rgba(#fff,0.4), transparent);
+    }
+  }
+
+  @keyframes hero-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+  }
+}
+
+// ── Shared section tag & title ──
+.about-section-tag {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: $primary;
+  margin-bottom: 12px;
+}
+
+.about-section-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: $dark;
+  line-height: 1.25;
+  margin-bottom: 16px;
+}
+
+// ── Story ──
+.about-story {
+  .about-story-image {
+    position: relative;
+    width: 100%;
+    height: 420px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  }
+
+  .about-story-image-accent {
+    position: absolute;
+    bottom: -6px;
+    left: -6px;
+    width: 120px;
+    height: 120px;
+    border-radius: 20px 0 0 0;
+    background: $primary;
+    opacity: 0.15;
+    z-index: -1;
+  }
+
+  .about-story-text {
+    font-size: 1rem;
+    line-height: 1.85;
+    color: $muted;
+    margin-bottom: 16px;
+  }
+}
+
+// ── Mission & Vision Cards ──
+.about-mission-vision {
+  .about-mv-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 40px 36px;
+    height: 100%;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    position: relative;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba($primary, 0.1);
+    }
+  }
+
+  .about-mv-icon-wrap {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba($primary, 0.08);
+    border-radius: 16px;
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: $primary;
+  }
+
+  .about-mv-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $dark;
+    margin-bottom: 12px;
+  }
+
+  .about-mv-text {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: $muted;
+  }
+
+  .about-mv-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    border-radius: 14px;
+    overflow: hidden;
+    margin-top: 28px;
+
+    img {
+      transition: transform 0.5s ease;
+    }
+
+    &:hover img {
+      transform: scale(1.04);
+    }
+  }
+}
+
+// ── Values Grid ──
+.about-values {
+  .about-value-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 32px 28px;
+    height: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 0;
+      background: $primary;
+      border-radius: 0 0 4px 0;
+      transition: height 0.3s ease;
+    }
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 36px rgba($primary, 0.08);
+      border-color: rgba($primary, 0.12);
+
+      &::before {
+        height: 100%;
+      }
+    }
+  }
+
+  .about-value-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: rgba($primary, 0.07);
+    color: $primary;
+    font-size: 24px;
+    margin-bottom: 18px;
+  }
+
+  .about-value-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: $dark;
+    margin-bottom: 8px;
+  }
+
+  .about-value-desc {
+    font-size: 0.9rem;
+    line-height: 1.75;
+    color: $muted;
+    margin: 0;
+  }
+}
+
+// ── Stats Section ──
+.about-stats {
+  position: relative;
+  padding: 80px 0;
+  background: $primary;
+  overflow: hidden;
+
+  .about-stats-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle at 30% 50%,
+      rgba(#fff, 0.05) 0%,
+      transparent 60%
+    );
+  }
+
+  .about-stat-card {
+    text-align: center;
+    padding: 30px 20px;
+    border-radius: 16px;
+    background: rgba(#fff, 0.06);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(#fff, 0.08);
+    transition: transform 0.3s ease, background 0.3s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      background: rgba(#fff, 0.1);
+    }
+  }
+
+  .about-stat-icon {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(#fff, 0.1);
+    margin: 0 auto 16px;
+    font-size: 24px;
+    color: #fff;
+  }
+
+  .about-stat-value {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 4px;
+    line-height: 1.1;
+  }
+
+  .about-stat-label {
+    font-size: 0.9rem;
+    color: rgba(#fff, 0.65);
+    margin: 0;
+  }
+}
+
+// ── CTA Section ──
+.about-cta {
+  background: linear-gradient(180deg, #f8fbff 0%, #fff 100%);
+
+  .about-cta-title {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: $dark;
+    line-height: 1.25;
+    margin-bottom: 16px;
+  }
+
+  .about-cta-text {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: $muted;
+    max-width: 520px;
+    margin: 0 auto 32px;
+  }
+
+  .about-cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .about-cta-btn-primary {
+    padding: 12px 36px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    background: $primary;
+    border-color: $primary;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: darken($primary, 8%);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba($primary, 0.25);
+    }
+  }
+
+  .about-cta-btn-outline {
+    padding: 12px 36px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    border: 2px solid $primary;
+    color: $primary;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: $primary;
+      color: #fff;
+      transform: translateY(-2px);
+    }
+  }
+}
+
+// ── Responsive ──
+@media (max-width: 991.98px) {
+  .about-hero {
+    min-height: 480px;
+    padding: 140px 0 80px;
+
+    .about-hero-title {
+      font-size: 2.4rem;
+    }
+
+    .about-hero-decor .decor-dots,
+    .about-hero-decor .decor-dots-right {
+      display: none;
+    }
+  }
+
+  .about-section-title {
+    font-size: 1.75rem;
+  }
+
+  .about-story .about-story-image {
+    height: 300px;
+    margin-bottom: 30px;
+  }
+
+  .about-stats .about-stat-value {
+    font-size: 2rem;
+  }
+
+  .about-cta .about-cta-title {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .about-hero {
+    min-height: 420px;
+    padding: 120px 0 60px;
+
+    .about-hero-title {
+      font-size: 1.8rem;
+    }
+
+    .about-hero-subtitle {
+      font-size: 1rem;
+    }
+
+    .about-hero-decor {
+      display: none;
+    }
+  }
+
+  .about-section-title {
+    font-size: 1.5rem;
+  }
+
+  .about-mission-vision .about-mv-card {
+    padding: 28px 24px;
+  }
+
+  .about-values .about-value-card {
+    padding: 24px 20px;
+  }
+
+  .about-cta .about-cta-title {
+    font-size: 1.5rem;
+  }
+}
