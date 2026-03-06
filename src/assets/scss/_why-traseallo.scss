@@ -1,17 +1,17 @@
 //
-// _why-trasealio.scss
+// _why-traseallo.scss
 //
 
-.why-trasealio-section {
+.why-traseallo-section {
   padding: 80px 0 100px;
   background: $white;
 }
 
-.why-trasealio-header {
+.why-traseallo-header {
   margin-bottom: 60px;
 }
 
-.why-trasealio-subtitle {
+.why-traseallo-subtitle {
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.7px;
@@ -20,7 +20,7 @@
   margin-bottom: 12px;
 }
 
-.why-trasealio-title {
+.why-traseallo-title {
   font-size: 42px;
   font-weight: 700;
   color: $dark;
@@ -29,7 +29,7 @@
 }
 
 // 3-column interactive layout
-.why-trasealio-content {
+.why-traseallo-content {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
@@ -39,7 +39,7 @@
 }
 
 // Left labels column
-.why-trasealio-labels {
+.why-traseallo-labels {
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -132,7 +132,7 @@
 }
 
 // Center diagram
-.why-trasealio-diagram {
+.why-traseallo-diagram {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -153,7 +153,7 @@
 }
 
 // Right features column
-.why-trasealio-features {
+.why-traseallo-features {
   position: relative;
   min-height: 200px;
   display: flex;
@@ -196,13 +196,13 @@
 
 // Responsive
 @media (max-width: 991px) {
-  .why-trasealio-content {
+  .why-traseallo-content {
     grid-template-columns: 1fr;
     gap: 40px;
     text-align: center;
   }
 
-  .why-trasealio-labels {
+  .why-traseallo-labels {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
@@ -233,7 +233,7 @@
     }
   }
 
-  .why-trasealio-diagram {
+  .why-traseallo-diagram {
     order: 1;
 
     svg {
@@ -241,7 +241,7 @@
     }
   }
 
-  .why-trasealio-features {
+  .why-traseallo-features {
     order: 3;
     min-height: auto;
     padding-left: 0;
@@ -263,21 +263,21 @@
     }
   }
 
-  .why-trasealio-title {
+  .why-traseallo-title {
     font-size: 32px;
   }
 }
 
 @media (max-width: 575px) {
-  .why-trasealio-section {
+  .why-traseallo-section {
     padding: 50px 0 60px;
   }
 
-  .why-trasealio-title {
+  .why-traseallo-title {
     font-size: 26px;
   }
 
-  .why-trasealio-header {
+  .why-traseallo-header {
     margin-bottom: 40px;
   }
 }

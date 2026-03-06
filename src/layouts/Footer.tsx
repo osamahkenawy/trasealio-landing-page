@@ -69,7 +69,7 @@ const Footer = () => {
                                     <a href="https://www.facebook.com/profile.php?id=61582271193231" target="_blank" rel="noopener noreferrer" title="Facebook"><Icon icon='mdi:facebook' /></a>
                                 </li>&nbsp;
                                 <li className="list-inline-item">
-                                    <a href="https://www.instagram.com/trasealla/" target="_blank" rel="noopener noreferrer" title="Instagram"><Icon icon='mdi:instagram' /></a>
+                                    <a href="https://www.instagram.com/traseallo/" target="_blank" rel="noopener noreferrer" title="Instagram"><Icon icon='mdi:instagram' /></a>
                                 </li>&nbsp;
                                 <li className="list-inline-item">
                                     <a href="https://www.linkedin.com/company/110608503/" target="_blank" rel="noopener noreferrer" title="LinkedIn"><Icon icon='mdi:linkedin' /></a>
@@ -98,7 +98,7 @@ const Footer = () => {
                             <div className="footer-parent-brand">
                                 <span className="footer-parent-divider"></span>
                                 <span className="footer-parent-label">{t('footer.productOf')}</span>
-                                <Image src={traseallaLogo} alt="Trasealla — Future Systems" height={26} className="footer-parent-logo" />
+                                <Image src={traseallaLogo} alt="Traseallo — Future Systems" height={26} className="footer-parent-logo" />
                             </div>
                         </div>
                     </Col>

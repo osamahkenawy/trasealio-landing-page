@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import React, { useState } from "react";
-import image from "@/assets/images/trasealio_contact_screen.png";
+import image from "@/assets/images/traseallo_contact_screen.png";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { Col, Container, Row } from "react-bootstrap";
 import { sendMessage } from "./SendMessage";
@@ -35,15 +35,15 @@ const Contact = () => {
           </Col>
         </Row>
 
-        <Row className="mt-5 pt-5">
+        <Row className="mt-4 mt-lg-5 pt-lg-5">
           {/* Left: Info */}
           <Col lg={6}>
-            <div className="mt-4">
+            <div className="mt-4 text-center text-lg-start">
               <Image src={image} className="img-fluid" alt="image" />
             </div>
 
             <Row className="mt-3">
-              <Col lg={6}>
+              <Col sm={6}>
                 <div className="mt-4">
                   <h5 className="f-18">{t('contact.onlineServices')}</h5>
                   <p className="mb-2 mt-3 text-muted">
@@ -56,7 +56,7 @@ const Contact = () => {
                   </p>
                 </div>
               </Col>
-              <Col lg={6}>
+              <Col sm={6}>
                 <div className="mt-4">
                   <h5 className="f-18">{t('contact.onlineContact')}</h5>
                   <p className="mb-2 mt-3 text-muted">
@@ -87,7 +87,7 @@ const Contact = () => {
                      title="Facebook">
                     <Icon icon="mdi:facebook" />
                   </a>
-                  <a href="https://www.instagram.com/trasealla/" target="_blank" rel="noopener noreferrer"
+                  <a href="https://www.instagram.com/traseallo/" target="_blank" rel="noopener noreferrer"
                      className="d-flex align-items-center justify-content-center rounded-circle"
                      style={{ width: 42, height: 42, background: 'linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)', color: '#fff', fontSize: 20, transition: 'opacity 0.2s' }}
                      title="Instagram">

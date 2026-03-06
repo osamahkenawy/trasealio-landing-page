@@ -80,6 +80,7 @@
 /* Slider track */
 .pricing-slider-wrap {
   padding: 12px 16px 0;
+  direction: ltr; /* Always LTR so track-fill and range thumb stay aligned */
 }
 
 .pricing-track {
@@ -98,11 +99,6 @@
   background: $primary;
   border-radius: 4px;
   transition: width 0.05s linear;
-
-  [dir='rtl'] & {
-    left: auto;
-    right: 0;
-  }
 }
 
 .pricing-range-input {
@@ -549,6 +545,143 @@
 
     &:hover {
       border-bottom-color: $primary;
+    }
+  }
+}
+
+/* ═══════════════════════════════════════════
+   FREE BADGE (for Driver App feature)
+   ═══════════════════════════════════════════ */
+.pricing-free-badge {
+  background: #dcfce7 !important;
+  color: #16a34a !important;
+  border: 1px solid #bbf7d0;
+}
+
+/* ═══════════════════════════════════════════
+   MOBILE DRIVER APP SHOWCASE
+   ═══════════════════════════════════════════ */
+.pricing-mobile-showcase {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  margin-top: 64px;
+  padding: 48px 32px;
+  background: linear-gradient(180deg, #f8fafd 0%, #eef2f9 100%);
+  border-radius: 24px;
+  border: 1px solid #e5e7eb;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    gap: 48px;
+    padding: 56px 48px;
+  }
+}
+
+.pricing-mobile-text {
+  flex: 1;
+  text-align: center;
+
+  @media (min-width: 768px) {
+    text-align: start;
+  }
+}
+
+.pricing-mobile-badge-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: $primary;
+  margin-bottom: 12px;
+}
+
+.pricing-mobile-free-tag {
+  display: inline-block;
+  background: #dcfce7;
+  color: #16a34a;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 3px 10px;
+  border-radius: 100px;
+  border: 1px solid #bbf7d0;
+}
+
+.pricing-mobile-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: $dark;
+  margin-bottom: 10px;
+
+  @media (min-width: 992px) {
+    font-size: 30px;
+  }
+}
+
+.pricing-mobile-desc {
+  font-size: 15px;
+  line-height: 1.7;
+  color: $muted;
+  margin-bottom: 24px;
+  max-width: 480px;
+
+  @media (min-width: 768px) {
+    margin-left: 0;
+    margin-right: auto;
+  }
+}
+
+.pricing-mobile-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+
+  @media (min-width: 480px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 550;
+    color: $dark;
+
+    .pricing-check-icon {
+      color: $success;
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+  }
+}
+
+.pricing-mobile-image {
+  flex-shrink: 0;
+  position: relative;
+
+  img {
+    max-width: 260px;
+    height: auto;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
+    border-radius: 24px;
+  }
+
+  @media (min-width: 768px) {
+    img {
+      max-width: 300px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    img {
+      max-width: 220px;
     }
   }
 }

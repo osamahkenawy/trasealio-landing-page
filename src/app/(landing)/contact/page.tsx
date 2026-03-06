@@ -17,7 +17,7 @@ const CONTACT_CARDS = [
 
 const SOCIAL_LINKS = [
   { icon: 'mdi:facebook', href: 'https://www.facebook.com/profile.php?id=61582271193231', label: 'Facebook' },
-  { icon: 'mdi:instagram', href: 'https://www.instagram.com/trasealla/', label: 'Instagram' },
+  { icon: 'mdi:instagram', href: 'https://www.instagram.com/traseallo/', label: 'Instagram' },
   { icon: 'mdi:linkedin', href: 'https://www.linkedin.com/company/110608503/', label: 'LinkedIn' },
   { icon: 'mdi:whatsapp', href: 'https://wa.me/971503920037', label: 'WhatsApp' },
 ]
@@ -32,7 +32,7 @@ const ContactPage = () => {
 
   return (
     <>
-      <TopBar hideNav solidBg ctaLabel="Explore Trasealio" ctaHref="/" />
+      <TopBar hideNav solidBg ctaLabel="Explore traseallo" ctaHref="/" />
 
       {/* ── Hero ── */}
       <section className="page-hero">
@@ -248,7 +248,7 @@ const ContactPage = () => {
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Trasealio Office Location"
+              title="traseallo Office Location"
             />
             <div className="contact-map-overlay">
               <div className="contact-map-card">

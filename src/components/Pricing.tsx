@@ -4,6 +4,8 @@ import React, { useState, useCallback, useMemo, useRef, useEffect } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import { useTranslation } from '@/i18n'
 import { useCurrency, POPULAR_CURRENCIES } from '@/hooks/useCurrency'
+import Image from 'next/image'
+import driverMockup from '@/assets/images/mobile_screens/traseallo_iphone_mockup_driver.png'
 
 /* ──────────────────────────────────────────
    API base URL — reads from env or defaults to localhost:4001
@@ -78,9 +80,9 @@ const PLAN_ICONS: Record<string, React.ReactNode> = {
 
 /** Hardcoded fallback plans (used if API is unreachable) */
 const FALLBACK_PLANS: Plan[] = [
-  { key: 'starter', base: 750, baseStops: 1_000, extraRate: 0.04, featured: false, iconSvg: <StarterIcon />, featureCount: 6, featureKeys: ['starterF1','starterF2','starterF3','starterF4','starterF5','starterF6'] },
-  { key: 'professional', base: 1350, baseStops: 2_000, extraRate: 0.06, featured: true, badgeKey: 'pricing.bestForFleets', iconSvg: <GrowthIcon />, featureCount: 5, featureKeys: ['growthF1','growthF2','growthF3','growthF4','growthF5'] },
-  { key: 'enterprise', base: 2500, baseStops: 12_000, extraRate: 0.07, featured: false, iconSvg: <EnterpriseIcon />, featureCount: 4, featureKeys: ['enterpriseF1','enterpriseF2','enterpriseF3','enterpriseF4'] },
+  { key: 'starter', base: 125, baseStops: 1_000, extraRate: 0.007, featured: false, iconSvg: <StarterIcon />, featureCount: 7, featureKeys: ['driverAppFree','starterF1','starterF2','starterF3','starterF4','starterF5','starterF6'] },
+  { key: 'professional', base: 225, baseStops: 2_000, extraRate: 0.01, featured: true, badgeKey: 'pricing.bestForFleets', iconSvg: <GrowthIcon />, featureCount: 6, featureKeys: ['driverAppFree','growthF1','growthF2','growthF3','growthF4','growthF5'] },
+  { key: 'enterprise', base: 415, baseStops: 12_000, extraRate: 0.012, featured: false, iconSvg: <EnterpriseIcon />, featureCount: 5, featureKeys: ['driverAppFree','enterpriseF1','enterpriseF2','enterpriseF3','enterpriseF4'] },
 ]
 
 /* ──────────────────────────────────────────
@@ -91,7 +93,7 @@ const CheckItem = ({ text, badge }: { text: string; badge?: string }) => (
     <Icon icon="tabler:check" className="pricing-check-icon" />
     <div className="pricing-check-text-wrap">
       <span>{text}</span>
-      {badge && <span className="pricing-coming-badge">{badge}</span>}
+      {badge && <span className={`pricing-coming-badge ${badge === 'Free' || badge === 'مجاني' ? 'pricing-free-badge' : ''}`}>{badge}</span>}
     </div>
   </div>
 )
@@ -381,9 +383,12 @@ const Pricing = () => {
 
                 <div className="pricing-features-list">
                   <p className="pricing-features-header">{t(headerKey)}</p>
-                  {featureKeys.map((fk, i) => (
-                    <CheckItem key={i} text={t(fk)} />
-                  ))}
+                  {featureKeys.map((fk, i) => {
+                    if (fk === 'pricing.driverAppFree') {
+                      return <CheckItem key={i} text={t('pricing.driverApp')} badge={t('pricing.free')} />
+                    }
+                    return <CheckItem key={i} text={t(fk)} />
+                  })}
                   {/* Special "Coming soon" items for enterprise */}
                   {plan.key === 'enterprise' && (
                     <CheckItem text={t('pricing.geofencing')} badge={t('pricing.comingSoon')} />
@@ -398,6 +403,34 @@ const Pricing = () => {
         <div className="pricing-enterprise-cta">
           <span>{t('pricing.lookingForEnterprise')}</span>
           <a href="#contact" className="pricing-enterprise-link">{t('pricing.getInTouch')}</a>
+        </div>
+
+        {/* ── Driver App Mobile Mockup ── */}
+        <div className="pricing-mobile-showcase">
+          <div className="pricing-mobile-text">
+            <div className="pricing-mobile-badge-row">
+              <Icon icon="tabler:device-mobile" width={22} />
+              <span className="pricing-mobile-free-tag">{t('pricing.free')}</span>
+            </div>
+            <h3 className="pricing-mobile-title">{t('pricing.driverAppTitle')}</h3>
+            <p className="pricing-mobile-desc">{t('pricing.driverAppDesc')}</p>
+            <ul className="pricing-mobile-features">
+              <li><Icon icon="tabler:check" className="pricing-check-icon" /> {t('pricing.driverAppF1')}</li>
+              <li><Icon icon="tabler:check" className="pricing-check-icon" /> {t('pricing.driverAppF2')}</li>
+              <li><Icon icon="tabler:check" className="pricing-check-icon" /> {t('pricing.driverAppF3')}</li>
+              <li><Icon icon="tabler:check" className="pricing-check-icon" /> {t('pricing.driverAppF4')}</li>
+            </ul>
+          </div>
+          <div className="pricing-mobile-image">
+            <Image
+              src={driverMockup}
+              alt="traseallo Driver App"
+              width={320}
+              height={640}
+              quality={90}
+              placeholder="blur"
+            />
+          </div>
         </div>
       </Container>
 

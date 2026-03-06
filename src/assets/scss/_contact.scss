@@ -81,4 +81,75 @@ textarea.form-control {
   }
 }
 
+/* ═══════════════════════════════════════════
+   Contact section — mobile enhancements
+   ═══════════════════════════════════════════ */
+@media (max-width: 991px) {
+  #contact {
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
 
+    /* Reduce top gap between title and content on mobile */
+    .mt-5.pt-5 {
+      margin-top: 1.5rem !important;
+      padding-top: 0 !important;
+    }
+
+    /* Center image and constrain size */
+    .img-fluid {
+      max-width: 320px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* Contact info cards — stack nicely */
+    .f-18 {
+      font-size: 16px;
+      margin-top: 8px;
+    }
+
+    /* Social icons — center on mobile */
+    .d-flex.gap-3.mt-3 {
+      justify-content: center;
+    }
+
+    /* Form area — tighter on mobile */
+    .custom-form {
+      margin-top: 16px !important;
+
+      .form-group {
+        margin-top: 8px !important;
+      }
+    }
+
+    /* Button — full width on mobile */
+    .submitBnt {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  #contact {
+    padding-top: 36px !important;
+    padding-bottom: 36px !important;
+
+    .title-heading {
+      font-size: 22px;
+    }
+
+    .title-desc {
+      font-size: 14px;
+      padding: 0 8px;
+    }
+
+    .img-fluid {
+      max-width: 260px;
+    }
+
+    /* Stack first/last name fields on small screens */
+    .form-group {
+      margin-bottom: 4px;
+    }
+  }
+}

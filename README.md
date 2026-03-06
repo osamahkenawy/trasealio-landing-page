@@ -1,8 +1,8 @@
-# Trasealio Landing Page
+# traseallo Landing Page
 
 **Deliver Without Limits.**
 
-Trasealio is a full-scale delivery operations platform connecting merchants, dispatchers, drivers, recipients, and finance into one unified workflow — built on a secure multi-tenant SaaS foundation.
+traseallo is a full-scale delivery operations platform connecting merchants, dispatchers, drivers, recipients, and finance into one unified workflow — built on a secure multi-tenant SaaS foundation.
 
 ## Getting Started
 

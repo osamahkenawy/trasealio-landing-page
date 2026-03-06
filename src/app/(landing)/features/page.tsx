@@ -27,7 +27,7 @@ const FeaturesPage = () => {
 
   return (
     <>
-      <TopBar hideNav solidBg ctaLabel="Explore Trasealio" ctaHref="/" />
+      <TopBar hideNav solidBg ctaLabel="Explore traseallo" ctaHref="/" />
 
       {/* Hero */}
       <section className="page-hero">

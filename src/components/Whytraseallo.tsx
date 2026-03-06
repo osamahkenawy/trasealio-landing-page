@@ -12,7 +12,7 @@ const diamondY = [8, 97, 200, 277]
 // Y positions for the ghost/outline diamonds
 const ghostPositions = [8, 32, 56, 97, 137, 177, 200, 277]
 
-const WhyTrasealio = () => {
+const Whytraseallo = () => {
     const { t, dir } = useTranslation()
     const [active, setActive] = useState<LayerKey>('clients')
     const [isAutoPlay, setIsAutoPlay] = useState(true)
@@ -40,35 +40,35 @@ const WhyTrasealio = () => {
 
     const features: Record<LayerKey, { title: string; items: string[] }> = {
         clients: {
-            title: t('whyTrasealio.clients.title'),
+            title: t('whytraseallo.clients.title'),
             items: [
-                t('whyTrasealio.clients.item1'),
-                t('whyTrasealio.clients.item2'),
-                t('whyTrasealio.clients.item3'),
+                t('whytraseallo.clients.item1'),
+                t('whytraseallo.clients.item2'),
+                t('whytraseallo.clients.item3'),
             ],
         },
         dispatchers: {
-            title: t('whyTrasealio.dispatchers.title'),
+            title: t('whytraseallo.dispatchers.title'),
             items: [
-                t('whyTrasealio.dispatchers.item1'),
-                t('whyTrasealio.dispatchers.item2'),
-                t('whyTrasealio.dispatchers.item3'),
+                t('whytraseallo.dispatchers.item1'),
+                t('whytraseallo.dispatchers.item2'),
+                t('whytraseallo.dispatchers.item3'),
             ],
         },
         drivers: {
-            title: t('whyTrasealio.drivers.title'),
+            title: t('whytraseallo.drivers.title'),
             items: [
-                t('whyTrasealio.drivers.item1'),
-                t('whyTrasealio.drivers.item2'),
-                t('whyTrasealio.drivers.item3'),
+                t('whytraseallo.drivers.item1'),
+                t('whytraseallo.drivers.item2'),
+                t('whytraseallo.drivers.item3'),
             ],
         },
         recipients: {
-            title: t('whyTrasealio.recipients.title'),
+            title: t('whytraseallo.recipients.title'),
             items: [
-                t('whyTrasealio.recipients.item1'),
-                t('whyTrasealio.recipients.item2'),
-                t('whyTrasealio.recipients.item3'),
+                t('whytraseallo.recipients.item1'),
+                t('whytraseallo.recipients.item2'),
+                t('whytraseallo.recipients.item3'),
             ],
         },
     }
@@ -76,18 +76,18 @@ const WhyTrasealio = () => {
     const isRtl = dir === 'rtl'
 
     return (
-        <section className="why-trasealio-section" id="why-trasealio">
+        <section className="why-traseallo-section" id="why-traseallo">
             <Container>
                 {/* Header */}
-                <div className="why-trasealio-header text-center">
-                    <p className="why-trasealio-subtitle">{t('whyTrasealio.subtitle')}</p>
-                    <h2 className="why-trasealio-title">{t('whyTrasealio.title')}</h2>
+                <div className="why-traseallo-header text-center">
+                    <p className="why-traseallo-subtitle">{t('whytraseallo.subtitle')}</p>
+                    <h2 className="why-traseallo-title">{t('whytraseallo.title')}</h2>
                 </div>
 
                 {/* Interactive 3-column layout */}
-                <div className="why-trasealio-content">
+                <div className="why-traseallo-content">
                     {/* Left: Layer buttons */}
-                    <div className={`why-trasealio-labels ${isRtl ? 'rtl-labels' : ''}`}>
+                    <div className={`why-traseallo-labels ${isRtl ? 'rtl-labels' : ''}`}>
                         {layers.map((layer, idx) => {
                             const isActive = active === layer
                             return (
@@ -98,7 +98,7 @@ const WhyTrasealio = () => {
                                         onClick={() => handleClick(layer)}
                                     >
                                         <span className="layer-label">
-                                            {t(`whyTrasealio.layers.${layer}`)}
+                                            {t(`whytraseallo.layers.${layer}`)}
                                         </span>
                                     </button>
                                     <div className={`connector-line ${isActive ? 'active' : ''}`}>
@@ -110,7 +110,7 @@ const WhyTrasealio = () => {
                     </div>
 
                     {/* Center: SVG Diamond Stack */}
-                    <div className="why-trasealio-diagram">
+                    <div className="why-traseallo-diagram">
                         <svg viewBox="0 0 276 420" width="276" role="img" aria-hidden="true">
                             <defs>
                                 <linearGradient id="active-diamond-gradient" x1="138" y1="0" x2="138" y2="140" gradientUnits="userSpaceOnUse">
@@ -161,7 +161,7 @@ const WhyTrasealio = () => {
                     </div>
 
                     {/* Right: Feature descriptions */}
-                    <div className={`why-trasealio-features ${isRtl ? 'rtl-features' : ''}`}>
+                    <div className={`why-traseallo-features ${isRtl ? 'rtl-features' : ''}`}>
                         {layers.map((layer) => {
                             const isActive = active === layer
                             const data = features[layer]
@@ -185,4 +185,4 @@ const WhyTrasealio = () => {
     )
 }
 
-export default WhyTrasealio
+export default Whytraseallo

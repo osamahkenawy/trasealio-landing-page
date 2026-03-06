@@ -88,7 +88,7 @@ const CareerApplyPage = () => {
 
   return (
     <>
-      <TopBar hideNav solidBg ctaLabel="Explore Trasealio" ctaHref="/" />
+      <TopBar hideNav solidBg ctaLabel="Explore traseallo" ctaHref="/" />
 
       <section className="page-hero page-hero--compact">
         <div className="page-hero-decor">
@@ -297,7 +297,7 @@ const CareerApplyPage = () => {
                       <Icon icon="mdi:arrow-left" /> Back to Careers
                     </Link>
                     <Link href="/" className="btn btn-primary">
-                      Explore Trasealio
+                      Explore traseallo
                     </Link>
                   </div>
                 </div>

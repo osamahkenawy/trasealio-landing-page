@@ -22,28 +22,28 @@ export const teamData: TeamMember[] = [
     {
         id: 1,
         name: "team.member1Name",
-        email: "osama@trasealio.com",
+        email: "osama@traseallo.com",
         role: "team.member1Role",
         img: img1,
     },
     {
         id: 2,
         name: "team.member2Name",
-        email: "ahmed@trasealio.com",
+        email: "ahmed@traseallo.com",
         role: "team.member2Role",
         img: img2,
     },
     {
         id: 3,
         name: "team.member3Name",
-        email: "sara@trasealio.com",
+        email: "sara@traseallo.com",
         role: "team.member3Role",
         img: img3,
     },
     {
         id: 4,
         name: "team.member4Name",
-        email: "khalid@trasealio.com",
+        email: "khalid@traseallo.com",
         role: "team.member4Role",
         img: img4,
     }

@@ -59,7 +59,7 @@ export interface CurrencyInfo {
   setCurrency: (code: string) => void
 }
 
-const CACHE_KEY = 'trasealio_fx'
+const CACHE_KEY = 'traseallo_fx'
 const CACHE_TTL = 3600_000 // 1 hour
 
 function getCachedRates(): Record<string, number> | null {

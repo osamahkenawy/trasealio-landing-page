@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { Icon } from '@iconify/react/dist/iconify.js'
 
 const WHATSAPP_NUMBER = '971503920037'
-const WHATSAPP_MESSAGE = 'Hi! I\'m interested in learning more about Trasealio.'
+const WHATSAPP_MESSAGE = 'Hi! I\'m interested in learning more about traseallo.'
 
 const WhatsAppFloat = () => {
   const [hovered, setHovered] = useState(false)

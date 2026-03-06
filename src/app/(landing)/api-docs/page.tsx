@@ -21,7 +21,7 @@ const ApiDocsPage = () => {
 
   return (
     <>
-      <TopBar hideNav solidBg ctaLabel="Explore Trasealio" ctaHref="/" />
+      <TopBar hideNav solidBg ctaLabel="Explore traseallo" ctaHref="/" />
 
       <section className="page-hero">
         <div className="page-hero-decor">
