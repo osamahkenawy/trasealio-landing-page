@@ -54,7 +54,7 @@ const Footer = () => {
                                     <ul className="list-unstyled footer-link mt-3">
                                         <li><Link href='/about'>{t('footer.leadership')}</Link></li>
                                         <li><Link href='/careers'>{t('footer.careers')}</Link></li>
-                                        <li><Link href='/#contact'>{t('footer.contactUs')}</Link></li>
+                                        <li><Link href='/contact'>{t('footer.contactUs')}</Link></li>
                                         <li><Link href='/partners'>{t('footer.maps')}</Link></li>
                                     </ul>
                                 </div>
@@ -66,16 +66,16 @@ const Footer = () => {
                             <h5 className="f-18">{t('footer.followUs')}</h5>
                             <ul className="list-inline social-icons-list pt-3">
                                 <li className="list-inline-item">
-                                    <Link href=""><Icon icon='mdi:facebook' /></Link>
+                                    <a href="https://www.facebook.com/profile.php?id=61582271193231" target="_blank" rel="noopener noreferrer" title="Facebook"><Icon icon='mdi:facebook' /></a>
                                 </li>&nbsp;
                                 <li className="list-inline-item">
-                                    <Link href=""><Icon icon='mdi:twitter' /></Link>
+                                    <a href="https://www.instagram.com/trasealla/" target="_blank" rel="noopener noreferrer" title="Instagram"><Icon icon='mdi:instagram' /></a>
                                 </li>&nbsp;
                                 <li className="list-inline-item">
-                                    <Link href=""><Icon icon='mdi:linkedin' /></Link>
+                                    <a href="https://www.linkedin.com/company/110608503/" target="_blank" rel="noopener noreferrer" title="LinkedIn"><Icon icon='mdi:linkedin' /></a>
                                 </li>&nbsp;
                                 <li className="list-inline-item">
-                                    <Link href=""><Icon icon='mdi:google-plus' /></Link>
+                                    <a href="https://wa.me/971503920037" target="_blank" rel="noopener noreferrer" title="WhatsApp"><Icon icon='mdi:whatsapp' /></a>
                                 </li>
                             </ul>
                             <h5 className="f-18">{t('footer.downloadApp')}</h5>

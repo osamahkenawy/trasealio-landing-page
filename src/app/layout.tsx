@@ -7,6 +7,7 @@ import '@/assets/scss/style.scss'
 
 import { Poppins, Noto_Sans_Arabic } from 'next/font/google';
 import { I18nProvider } from '@/i18n';
+import WhatsAppFloat from '@/components/WhatsAppFloat';
 
 const poppins = Poppins({
   weight: ['400', '500', '600'],
@@ -44,6 +45,7 @@ export default function RootLayout({
       <body className={`${poppins.variable} ${notoSansArabic.variable} ${poppins.className}`} suppressHydrationWarning>
         <I18nProvider>
           {children}
+          <WhatsAppFloat />
         </I18nProvider>
       </body>
     </html>

@@ -28,6 +28,20 @@ const STATS_ICONS = [
   'mdi:earth',
 ]
 
+const TIMELINE = [
+  { year: '2024', icon: 'mdi:lightbulb-on-outline', key: 'timeline1' },
+  { year: '2025', icon: 'mdi:rocket-launch-outline', key: 'timeline2' },
+  { year: '2025', icon: 'mdi:account-group-outline', key: 'timeline3' },
+  { year: '2026', icon: 'mdi:earth', key: 'timeline4' },
+]
+
+const TEAM_MEMBERS = [
+  { key: 'member1', icon: 'mdi:account-tie' },
+  { key: 'member2', icon: 'mdi:code-braces' },
+  { key: 'member3', icon: 'mdi:cog-outline' },
+  { key: 'member4', icon: 'mdi:chart-box-outline' },
+]
+
 const AboutPage = () => {
   const { t } = useTranslation()
 
@@ -169,6 +183,59 @@ const AboutPage = () => {
                   </div>
                   <h3 className="about-stat-value">{t(`aboutUs.stat${i}Value`)}</h3>
                   <p className="about-stat-label">{t(`aboutUs.stat${i}Label`)}</p>
+                </div>
+              </Col>
+            ))}
+          </Row>
+        </Container>
+      </section>
+
+      {/* ── Journey / Timeline Section ── */}
+      <section className="about-timeline section">
+        <Container>
+          <Row className="justify-content-center mb-5">
+            <Col lg={7} className="text-center">
+              <span className="about-section-tag">{t('aboutUs.timelineTag')}</span>
+              <h2 className="about-section-title">{t('aboutUs.timelineTitle')}</h2>
+              <p className="page-section-subtitle mx-auto">{t('aboutUs.timelineSubtitle')}</p>
+            </Col>
+          </Row>
+          <div className="about-timeline-track">
+            {TIMELINE.map((item, idx) => (
+              <div key={idx} className="about-timeline-item">
+                <div className="about-timeline-dot">
+                  <Icon icon={item.icon} />
+                </div>
+                <div className="about-timeline-content">
+                  <span className="about-timeline-year">{item.year}</span>
+                  <h4>{t(`aboutUs.${item.key}Title`)}</h4>
+                  <p>{t(`aboutUs.${item.key}Desc`)}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* ── Team Section ── */}
+      <section className="about-team section bg-light">
+        <Container>
+          <Row className="justify-content-center mb-5">
+            <Col lg={7} className="text-center">
+              <span className="about-section-tag">{t('aboutUs.teamTag')}</span>
+              <h2 className="about-section-title">{t('aboutUs.teamTitle')}</h2>
+              <p className="page-section-subtitle mx-auto">{t('aboutUs.teamSubtitle')}</p>
+            </Col>
+          </Row>
+          <Row className="gy-4 justify-content-center">
+            {TEAM_MEMBERS.map((m, idx) => (
+              <Col lg={3} md={6} key={idx}>
+                <div className="about-team-card">
+                  <div className="about-team-avatar">
+                    <Icon icon={m.icon} />
+                  </div>
+                  <h4>{t(`team.${m.key}Name`)}</h4>
+                  <span className="about-team-role">{t(`team.${m.key}Role`)}</span>
                 </div>
               </Col>
             ))}

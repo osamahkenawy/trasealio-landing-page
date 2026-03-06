@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import React, { useState } from "react";
-import image from "@/assets/images/img-1.png";
+import image from "@/assets/images/trasealio_contact_screen.png";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { Col, Container, Row } from "react-bootstrap";
 import { sendMessage } from "./SendMessage";
@@ -60,10 +60,7 @@ const Contact = () => {
                 <div className="mt-4">
                   <h5 className="f-18">{t('contact.onlineContact')}</h5>
                   <p className="mb-2 mt-3 text-muted">
-                    <Icon icon="mdi:phone" className="me-2 text-primary" /> {t('contact.phone1')}
-                  </p>
-                  <p className="text-muted">
-                    <Icon icon="mdi:phone" className="me-2 text-primary" /> {t('contact.phone2')}
+                    <Icon icon="mdi:whatsapp" className="me-2 text-primary" /> {t('contact.phone1')}
                   </p>
                 </div>
               </Col>
@@ -76,6 +73,39 @@ const Contact = () => {
                   <Icon icon="mdi:map-marker" className="me-2 text-primary" />
                   {t('contact.address')}
                 </p>
+              </Col>
+            </Row>
+
+            {/* Social Icons */}
+            <Row className="mt-4">
+              <Col lg={12}>
+                <h5 className="f-18">{t('footer.followUs')}</h5>
+                <div className="d-flex gap-3 mt-3">
+                  <a href="https://www.facebook.com/profile.php?id=61582271193231" target="_blank" rel="noopener noreferrer"
+                     className="d-flex align-items-center justify-content-center rounded-circle"
+                     style={{ width: 42, height: 42, background: '#1877f2', color: '#fff', fontSize: 20, transition: 'opacity 0.2s' }}
+                     title="Facebook">
+                    <Icon icon="mdi:facebook" />
+                  </a>
+                  <a href="https://www.instagram.com/trasealla/" target="_blank" rel="noopener noreferrer"
+                     className="d-flex align-items-center justify-content-center rounded-circle"
+                     style={{ width: 42, height: 42, background: 'linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)', color: '#fff', fontSize: 20, transition: 'opacity 0.2s' }}
+                     title="Instagram">
+                    <Icon icon="mdi:instagram" />
+                  </a>
+                  <a href="https://www.linkedin.com/company/110608503/" target="_blank" rel="noopener noreferrer"
+                     className="d-flex align-items-center justify-content-center rounded-circle"
+                     style={{ width: 42, height: 42, background: '#0a66c2', color: '#fff', fontSize: 20, transition: 'opacity 0.2s' }}
+                     title="LinkedIn">
+                    <Icon icon="mdi:linkedin" />
+                  </a>
+                  <a href="https://wa.me/971503920037" target="_blank" rel="noopener noreferrer"
+                     className="d-flex align-items-center justify-content-center rounded-circle"
+                     style={{ width: 42, height: 42, background: '#25d366', color: '#fff', fontSize: 20, transition: 'opacity 0.2s' }}
+                     title="WhatsApp">
+                    <Icon icon="mdi:whatsapp" />
+                  </a>
+                </div>
               </Col>
             </Row>
           </Col>
